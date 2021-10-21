@@ -1,2 +1,3 @@
 # WeGoMaccas
-Race between a crocodile and capybara
+
+Happy meal races to McDonalds for the best time on the leaderboards in this 2d platformer
