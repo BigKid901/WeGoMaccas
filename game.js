@@ -24,11 +24,11 @@ var platforms = [];
 // Function to render the canvas
 function rendercanvas(){
    ctx.fillStyle = "#F0F8FF";
-   ctx.fillRect(0, 0, 270, 270);
+   ctx.fillRect(0, 0, 720, 720);
 }
 // Function to render the player
 function renderplayer(){
-   ctx.fillStyle = "#F08080";
+   ctx.fillStyle = "#db1010";
    ctx.fillRect((player.x)-20, (player.y)-20, player.width, player.height);
    }
 // Function to create platforms
@@ -46,39 +46,39 @@ function createplat(){
    }
 // Function to render platforms
 function renderplat(){
-   ctx.fillStyle = "#45597E";
+   ctx.fillStyle = " #feffc0";
    ctx.fillRect(platforms[0].x, platforms[0].y, platforms[0].width, platforms[0].height);
    ctx.fillRect(platforms[1].x, platforms[1].y, platforms[1].width,platforms[1]. height);
 
 }
-// This function will be called when a key on the keyboard is pressed
+// This function will be called when a key on the keyboard is pressed https://gcctech.org/csc/javascript/javascript_keycodes.htm
 function keydown(e) {
-   // 37 is the code for the left arrow key
-   if(e.keyCode == 37) {
+   // a
+   if(e.keyCode == 65) {
        keys.left = true;
    }
-   // 37 is the code for the up arrow key
-   if(e.keyCode == 38) {
+   // SPACEBAR
+   if(e.keyCode == 32) {
        if(player.jump == false) {
            player.y_v = -10;
        }
    }
-   // 39 is the code for the right arrow key
-   if(e.keyCode == 39) {
+   // d
+   if(e.keyCode == 68) {
        keys.right = true;
    }
 }
 // This function is called when the pressed key is released
 function keyup(e) {
-   if(e.keyCode == 37) {
+   if(e.keyCode == 65) {
        keys.left = false;
    }
-   if(e.keyCode == 38) {
+   if(e.keyCode == 32) {
        if(player.y_v < -2) {
        player.y_v = -3;
        }
    }
-   if(e.keyCode == 39) {
+   if(e.keyCode == 68) {
        keys.right = false;
    }
 } 
@@ -122,8 +122,8 @@ function loop() {
 }
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
-ctx.canvas.height = 270;
-ctx.canvas.width = 270;
+ctx.canvas.height = 720;
+ctx.canvas.width = 720;
 createplat();
 // Adding the event listeners
 document.addEventListener("keydown",keydown);
