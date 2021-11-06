@@ -40,25 +40,38 @@
 </head>
 
 <body onload="whenLoaded();">
-
-    <!-- create the Player -->
-    <div id="thePlayer" class="box">WASD<br> to Move</div>
-
-    <!-- create the Background Image -->
-    <div id="theBackgroundImage"></div>
+    <div id="thePlayer" class="box">WASD<br> to Move</div> <!-- create the Player -->
+    <div id="theBackgroundImage"></div> <!-- create the Background Image -->
 
 <script>
-    
+    //THE CONTROLS SECTION
     window.addEventListener("keydown", theControls, false);
     window.addEventListener("keyup", theControls, false);
-
-    /* The Keyboard Letter Codes that are Being Pressed */
     let keyboard = {};
         keyboard.UP = 87;     //87 is w, 38 is up arrow
         keyboard.DOWN = 83;   //83 is s, 40 is down arrow
         keyboard.LEFT = 65;   //65 is a, 37 is left arrow
         keyboard.RIGHT = 68;  //68 is d, 39 is right arrow       
 
+    function theControls(e) { 
+        if(e.keyCode == 49 || e.keyCode == 97) { //number 1, or numpad 1 
+            ourPlayer.speedMultiplier=5;
+            ourPlayer.playerId.innerHTML="Speed 1";
+        }
+        if(e.keyCode == 50 || e.keyCode == 98) { //number 2, or numpad 2
+            ourPlayer.speedMultiplier=15;
+            ourPlayer.playerId.innerHTML="Speed 2";
+        }
+        if(e.keyCode == 51 || e.keyCode == 99) { //number 3, or numpad 3
+            ourPlayer.speedMultiplier=35;
+            ourPlayer.playerId.innerHTML="Speed 3";
+        }
+    
+        
+        let theKeyCode = e.keyCode || e.which; //Find out which key was pressed
+        keyboard[theKeyCode] = e.type == 'keydown';
+    }
+     
     /* Player's start position and id, PlayerLocation*/
     let ourPlayer = {
         x: 100,
@@ -67,29 +80,6 @@
         playerId: document.getElementById("thePlayer")
     };
 
-    function theControls(e)
-    { 
-        if(e.keyCode == 49 || e.keyCode == 97) //number 1, or numpad 1
-        {
-            ourPlayer.speedMultiplier=5;
-            ourPlayer.playerId.innerHTML="Speed 1";
-        }
-        if(e.keyCode == 50 || e.keyCode == 98) //number 2, or numpad 2
-        {
-            ourPlayer.speedMultiplier=15;
-            ourPlayer.playerId.innerHTML="Speed 2";
-        }
-        if(e.keyCode == 51 || e.keyCode == 99) //number 3, or numpad 3
-        {
-            ourPlayer.speedMultiplier=35;
-            ourPlayer.playerId.innerHTML="Speed 3";
-        }
-    
-        //Find out which key was pressed
-        let theKeyCode = e.keyCode || e.which;
-        keyboard[theKeyCode] = e.type == 'keydown';
-    }
-     
     /* Character Movement Updating */
     let movePlayer = function(theX, theY){
        ourPlayer.x += (theX||0) * ourPlayer.speedMultiplier;
@@ -116,22 +106,18 @@
     }
 
     //Camera Follows the Player
-    function scrollIt()
-    {
+    function scrollIt() {
         ourPlayer.playerId.scrollIntoView({block: "center", inline: "center"});
     }
 
-    function doThisLoop()
-    {
+    function doThisLoop() {
         playerMotion();
         scrollIt();     //Camera Follows Player
         requestAnimationFrame(doThisLoop);  
     }
+
     doThisLoop();
-          
-    //Update the Position of the player
-    movePlayer();
-    
+    movePlayer(); //Update the Position of the player
 </script>
 </body>
 </html>
