@@ -7,40 +7,17 @@
 <!-- Topalian Game Engine Data Navigator EASY VERSION -->
 <!-- Camera Follows Player -->
 
-<html><head>
-<style>
- #thePlayer{
-    position: absolute;
-    width: 70px;  
-    height: 70px;
-    background: rgb(73, 100, 150);
-    z-index: 1001;
-    font-family: Tahoma;
-    line-height: 18px;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 4px;
-    text-align: center;
-    color: white;
-    border-radius: 7px;
-}
-    
-#theBackgroundImage{
-    position: absolute;
-    width: 200000px;
-    height: 200000px;
-    background: black;
-    left: 0px;
-    top: 0px;
-    opacity: 1.0;
-    z-index: -100; 
-    background-image: url("https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/stars-nice-edited_orig.png");   
-}
-</style>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gamePage</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
 <body onload="whenLoaded();">
-    <div id="thePlayer" class="box">WASD<br> to Move</div> <!-- create the Player -->
+    <div id="thePlayer" class="box"></div> <!-- create the Player -->
     <div id="theBackgroundImage"></div> <!-- create the Background Image -->
 
 <script>

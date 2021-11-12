@@ -1,0 +1,17 @@
+#thePlayer { /* THE HAPPY MEAL */
+   background-image: url("happyMealCropped.png");
+   width: 38px; height: 49px;
+   position: absolute;
+}
+
+#theBackgroundImage {
+   position: absolute;
+   width: 200000px;
+   height: 200000px;
+   background: black;
+   left: 0px;
+   top: 0px;
+   opacity: 1.0;
+   z-index: -100; 
+   background-image: url("https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/stars-nice-edited_orig.png");   
+}
