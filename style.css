@@ -1,5 +1,5 @@
 #thePlayer { /* THE HAPPY MEAL */
-   background-image: url("happyMealCropped.png");
+   background-image: url("images/happyMealCropped.png");
    width: 38px; height: 49px;
    position: absolute;
 }
