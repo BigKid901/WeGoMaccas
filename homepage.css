@@ -1,0 +1,40 @@
+body{
+    background-color: #D2042D;
+    padding: 0px;
+    background-image: url("borger (1).png");
+    background-repeat: no-repeat;
+    background-size: 800px;
+}
+
+
+.click{
+    border-width:  20px;
+    border-color: black;
+    border-style: solid;
+    width: 95%;
+    height: 250px;
+    margin-top: 0px;
+    margin-left: 0.8%;
+}
+
+p{
+    color:#FFD700;
+    font-size: 70px;
+    font-family: fantasy;
+    font-style: bold;
+    margin-top: 0px;
+}
+
+a{
+    color:#FFD700;
+    font-size: 70px;
+    font-family: fantasy;
+}
+
+a:hover{
+    color:#9F2B68;
+}
+
+a:link {
+    text-decoration: none;
+}
