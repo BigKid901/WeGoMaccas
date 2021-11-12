@@ -1,11 +1,11 @@
 //THE CONTROLS SECTION
 window.addEventListener("keydown", theControls, false);
 window.addEventListener("keyup", theControls, false);
-let keyboard = {};
-    keyboard.UP = 87;     //87 is w, 38 is up arrow
-    keyboard.DOWN = 83;   //83 is s, 40 is down arrow
-    keyboard.LEFT = 65;   //65 is a, 37 is left arrow
-    keyboard.RIGHT = 68;  //68 is d, 39 is right arrow       
+let keyboard = {}; //This is the link for keycodes to change controls http://gcctech.org/csc/javascript/javascript_keycodes.htm
+    keyboard.UP = 87;     //W
+    keyboard.DOWN = 83;   //S
+    keyboard.LEFT = 65;   //A
+    keyboard.RIGHT = 68;  //D       
 
 function theControls(e) { 
     if(e.keyCode == 49 || e.keyCode == 97) { //number 1, or numpad 1 
@@ -21,46 +21,40 @@ function theControls(e) {
         ourPlayer.playerId.innerHTML="Speed 3";
     }
 
-    
     let theKeyCode = e.keyCode || e.which; //Find out which key was pressed
     keyboard[theKeyCode] = e.type == 'keydown';
 }
  
-/* Player's start position and id, PlayerLocation*/
-let ourPlayer = {
+let ourPlayer = { /* Player's start position and id, PlayerLocation */
     x: 100,
     y: 100,
     speedMultiplier: 35,
     playerId: document.getElementById("thePlayer")
 };
 
-/* Character Movement Updating */
-let movePlayer = function(theX, theY){
+let movePlayer = function(theX, theY) { /* Character Movement Updating */
    ourPlayer.x += (theX||0) * ourPlayer.speedMultiplier;
    ourPlayer.y += (theY||0) * ourPlayer.speedMultiplier;
-
    ourPlayer.playerId.style.left = ourPlayer.x + 'px';
    ourPlayer.playerId.style.top = ourPlayer.y + 'px';
 };
     
-/* Player Controls */
-let playerMotion = function(){
-    if(keyboard[keyboard.LEFT]){
+let playerMotion = function() { /* Player Controls */
+    if(keyboard[keyboard.LEFT]) {
         movePlayer(-1,0);
     }
-    if(keyboard[keyboard.RIGHT]){
+    if(keyboard[keyboard.RIGHT]) {
         movePlayer(1,0);
     }
-    if(keyboard[keyboard.UP]){
+    if(keyboard[keyboard.UP]) {
         movePlayer(0,-1);
     }
-    if(keyboard[keyboard.DOWN]){
+    if(keyboard[keyboard.DOWN]) {
         movePlayer(0,1);
     }
 }
 
-//Camera Follows the Player
-function scrollIt() {
+function scrollIt() { //Camera Follows the Player
     ourPlayer.playerId.scrollIntoView({block: "center", inline: "center"});
 }
 
