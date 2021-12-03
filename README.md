@@ -1,4 +1,4 @@
-# WeGoMaccas
+# WeGoMaccas - https://we-go-maccas.netlify.app/
 
 Happy meal races to McDonalds for the best time on the leaderboards in this 2d platformer.   JS file, HTML file, txt file for leaderboard. 
 
