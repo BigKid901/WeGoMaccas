@@ -1,7 +1,7 @@
 body{
     background-color: #D2042D;
     padding: 0px;
-    background-image: url("images/borger.png");
+    background-image: url("/images/borger.png");
     background-repeat: no-repeat;
     background-size: 800px;
 }
