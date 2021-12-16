@@ -72,7 +72,10 @@
 
     myForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      const input = csvFile.files[0];
+      const input = "leaderboard/leaderboard1.csv"; 
+      csv.src = "leaderboard/leaderboard1.csv";
+
+
       const reader = new FileReader();
 
       reader.onload = function (e) {
