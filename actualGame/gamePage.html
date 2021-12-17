@@ -9,10 +9,19 @@
         <title>gamePage</title>
         <link rel="stylesheet" href="/style/game.css">
     </head>
+<body>
 
-    <body onload="whenLoaded();">
+    <div class="left" onload="whenLoaded();">
         <div id="thePlayer" class="box"></div> <!-- create the Player -->
         <div id="theBackgroundImage"></div> <!-- create the Background Image -->
         <script src="/actualGame/theGameA.js"></script>
-    </body>
+    </div>
+
+    <div class="right" onload="whenLoaded();">
+        <div id="thePlayer" class="box"></div> <!-- create the Player -->
+        <div id="theBackgroundImage"></div> <!-- create the Background Image -->
+        <script src="/actualGame/theGameB.js"></script>
+    </div>
+
+</body>
 </html>

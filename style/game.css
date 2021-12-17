@@ -1,3 +1,14 @@
+#left {
+   align-items: stretch;
+   width:50%;
+}
+
+#right {
+   align-items: stretch;
+   width:50%;
+}
+
+
 #thePlayer { /* THE HAPPY MEAL */
    background-image: url("/images/happyMealCropped.png");
    width: 38px; height: 49px;
