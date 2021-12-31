@@ -1,22 +1,32 @@
 #left {
    align-items: stretch;
-   width:50%;
+   width: 50%;
+   float: left;
+   overflow: scroll;
 }
 
 #right {
    align-items: stretch;
-   width:50%;
+   width: 50%;
+   float: left;
+   overflow: scroll;
 }
 
 
-#thePlayer { /* THE HAPPY MEAL */
+.box { /* THE HAPPY MEAL */
    background-image: url("/images/happyMealCropped.png");
    width: 38px; height: 49px;
    position: absolute;
 }
 
-#theBackgroundImage {
+.bucket { /* THE KFC BUCKET */
+   background-image: url("/images/KFC.png");
+   width: 38px; height: 49px;
    position: absolute;
+}
+
+#theBackgroundImage {
+   
    width: 200000px;
    height: 200000px;
    background: black;
