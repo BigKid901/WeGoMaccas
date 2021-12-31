@@ -10,7 +10,7 @@ let ourPlayer = { /* Player's start position and id, PlayerLocation */
     x: 100,
     y: 100,
     speedMultiplier: 35,
-    playerId: document.getElementById("thePlayer")
+    playerId: document.getElementById("thePlayer2")
 };
 
 let movePlayer = function(theX, theY) { /* Character Movement Updating */
