@@ -1,26 +1,42 @@
 body{
     background-color: #D2042D;
-    padding: 0px;
-    background-image: url("/images/borger.png");
-    background-repeat: no-repeat;
-    background-size: 800px;
-}
+    padding: 0px;}
 
 
 .click{
     border-width:  20px;
     border-color: black;
     border-style: solid;
-    width: 95%;
-    height: 250px;
+    width: 40%;
+    height: 5%;
     margin-top: 0px;
-    margin-left: 0.8%;
+    margin-left: 25%;
+    border-radius: 100px;
+    padding-left: 30px;
+    position: relative;
+    top:-1700px;
+    z-index: 1;
+}
+
+.Maccus{
+    border-width:  20px;
+    border-color: black;
+    border-style: solid;
+    width: 40%;
+    height: 5%;
+    margin-top: 0%;
+    margin-left: 25%;
+    border-radius: 100px;
+    padding-left: 30px;
+    position: relative;
+    top:-1700px;
+    z-index: 1;
 }
 
 p{
     color:#FFD700;
     font-size: 70px;
-    font-family: fantasy;
+    font-family: 'Fuzzy Bubbles', cursive;
     font-style: bold;
     margin-top: 0px;
 }
@@ -28,7 +44,7 @@ p{
 a{
     color:#FFD700;
     font-size: 70px;
-    font-family: fantasy;
+    font-family: 'Fuzzy Bubbles', cursive;
 }
 
 a:hover{
@@ -37,4 +53,17 @@ a:hover{
 
 a:link {
     text-decoration: none;
+}
+
+
+.ellis{
+    position: relative;
+    top:-240px;
+    left: -150px;
+}
+
+.sanders{
+    position: relative;
+    top:-1000px;
+    left:600px;
 }
