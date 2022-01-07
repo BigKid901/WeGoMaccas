@@ -2,8 +2,8 @@ window.addEventListener("keydown", theControls, false);
 window.addEventListener("keyup", theControls, false);
 let keyboard = {}; //This is the link for keycodes to change controls http://gcctech.org/csc/javascript/javascript_keycodes.htm
     keyboard.UP = 73;     //I
-    keyboard.DOWN = 74;   //J
-    keyboard.LEFT = 75;   //K
+    keyboard.DOWN = 75;   //J
+    keyboard.LEFT = 74;   //K
     keyboard.RIGHT = 76;  //L       
 
 let ourPlayer = { /* Player's start position and id, PlayerLocation */
