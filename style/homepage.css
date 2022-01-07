@@ -8,13 +8,13 @@ body{
     border-color: black;
     border-style: solid;
     width: 40%;
-    height: 5%;
+    height: 30%;
     margin-top: 0px;
-    margin-left: 300px;
+    margin-left: 350px;
     border-radius: 100px;
     padding-left: 30px;
-    position: relative;
-    top:-1700px;
+    position: absolute;
+    top:400px;
     z-index: 1;
 }
 
@@ -23,13 +23,13 @@ body{
     border-color: black;
     border-style: solid;
     width: 40%;
-    height: 5%;
-    margin-top: 0%;
-    margin-left: 300px;
+    height: 30%;
+    margin-top: 0px;
+    margin-left: 350px;
     border-radius: 100px;
     padding-left: 30px;
-    position: relative;
-    top:-1700px;
+    position: absolute;
+    top:100px;
     z-index: 1;
 }
 
@@ -57,13 +57,19 @@ a:link {
 
 
 .ellis{
-    position: relative;
-    top:-240px;
-    left: -150px;
+    position: absolute;
+    top:0px;
+    left: -100px;
 }
 
 .sanders{
-    position: relative;
-    top:-1000px;
-    left:600px;
+    position: absolute;
+    top:0px;
+    right: -100px;
+}
+
+.back{
+    position: absolute;
+    top:3000px;
+    right: -1500px;
 }
