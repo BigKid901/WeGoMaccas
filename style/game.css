@@ -1,18 +1,3 @@
-#left {
-   align-items: stretch;
-   width: 50%;
-   float: left;
-   overflow: scroll;
-}
-
-#right {
-   align-items: stretch;
-   width: 50%;
-   float: left;
-   overflow: scroll;
-}
-
-
 .box { /* THE HAPPY MEAL */
    background-image: url("/images/happyMealCropped.png");
    width: 38px; height: 49px;
@@ -26,13 +11,13 @@
 }
 
 #theBackgroundImage {
-   
-   
-
-   background: black;
-   left: 0px;
-   top: 0px;
+   width: 1500px;
+   height: 800px;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center; 
+   background-image: url("/images/testLevel.png");
    opacity: 1.0;
    z-index: -100; 
-   background-image: url("https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/stars-nice-edited_orig.png");   
+     
 }
