@@ -1,138 +1,147 @@
 <!DOCTYPE html> 
 <html lang="en">
    <head>
-      <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
       <style> body { background: #F6F7BD; } #canvas { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); } </style>
    </head>
-   <body> 
-      <canvas id="canvas"></canvas> 
-   </body>
-   <script>
-      var canvas = document.getElementById("canvas");
-         ctx = canvas.getContext("2d");
-         width = 1000, height = 400, //canvas dimensions
 
-         player = {
+   <body> <canvas id="canvas"></canvas> </body>
+
+   <script>
+        var canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d"); width = 1000, height = 400, //canvas dimensions
+        player = {
             x: (width/2), y: 200, //player position
-            width: 38, height: 45, //player dimensions
-            speed: 3,
-            velX: 0, velY: 0,
+            width: 38, height: 49, //player dimensions
+            speed: 3, velX: 0, velY: 0, //player speed
             jumping: false, grounded: false,
             color:'#E6AC27'
-         },
+        }
 
-         keys = [],
-         friction = 0.8,
-         gravity = 0.4,
-         boxes = [], //array of platforms
-         powerup = [];  //array of power ups
+        keys = [], boxes = []/*array of platforms*/, powerup = [] /*array of power ups*/, friction = 0.8, gravity = 0.4; 
 
-      powerup.push({ x: 810, y: 250, 
-         width: 20, height: 20, 
-         color: '#BF4D28', effect: 'shrink' });
-
-      powerup.push({ x: 400, y: 150, 
-         width: 20, height: 20, 
-         color: '#BF4D28', effect: 'gravity' });
-
-      powerup.push({ x: -15, y: 88, 
-         width: 20, height: 20, 
-         color: '#222', effect: 'tele', 
-         rotate: 20, stay: true,
-         px: 20, py: 370 }); //where they get teleported 
-  
-      powerup.push({
-         x: 60, y: 365,
-         width: 20, height: 20,
-         color: '#2A5D77', effect: 'win', stay: true });
+      /*powerup.push({ x: 810, y: 250, width: 20, height: 20, color: '#BF4D28', effect: 'shrink' });
+      powerup.push({ x: 400, y: 150, width: 20, height: 20, color: '#BF4D28', effect: 'gravity' });
+      powerup.push({ x: -15, y: 88, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 }); //where they get teleported 
+      powerup.push({ x: 60, y: 365, width: 20, height: 20, color: '#2A5D77', effect: 'win', stay: true });*/
 
 // dimensions
-boxes.push({//box on left
-    x: 0,
-    y: height/4+10,
-    width: 10,
-    height: height,
+boxes.push({
+    x: 0, y: height/4+10,
+    width: 10, height: height,
     color: 'green'
 });
-boxes.push({//box on left
-    x: 0,
-    y: 0,
-    width: 10,
-    height: height/4-15,
+boxes.push({
+    x: 0, y: 0,
+    width: 10, height: height/4-15,
     color: 'green'
 });
-boxes.push({//box for the ground
-    x: 0,
-    y: height - 10,
-    width: width,
-    height: 50,
+boxes.push({
+    x: 0, y: height - 10,
+    width: width, height: 50,
     color: 'orange'
 });
-boxes.push({//box on right
+boxes.push({
     x: width - 10,
     y: 0,
     width: 50,
     height: height,
     color: 'yellow'
 });
-boxes.push({
-    x: 290,
-    y: 200,
-    width: 260,
-    height: 10,
+
+boxes.push({//Seventh platform
+    x: 680,
+    y: 120,
+    width: 70,
+    height: 30,
     color: 'blue'
 });
-boxes.push({
-    x: 590,
-    y: 200,
-    width: 80,
-    height: 10,
+
+boxes.push({//Sixth platform
+    x: 760,
+    y: 135,
+    width: 65,
+    height: 30,
     color: 'blue'
 });
-boxes.push({
-    x: 120,
-    y: 250,
-    width: 150,
-    height: 10,
+
+boxes.push({//Fith platform
+    x: 900,
+    y: 200,
+    width: 50,
+    height: 30,
     color: 'red'
 });
-boxes.push({
-    x: 220,
-    y: 300,
-    width: 80,
-    height: 10,
+
+boxes.push({//Fourth platform
+    x: 730,
+    y: 250,
+    width: 100,
+    height: 30,
     color: 'black'
 });
-boxes.push({
-    x: 340,
+
+boxes.push({//First platform
+    x: 200,
+    y: 325,
+    width: 130,
+    height: 30,
+    color: '#655643'
+});
+
+boxes.push({//Second platform
+    x: 400,
     y: 350,
-    width: 90,
-    height: 10,
+    width: 150,
+    height: 30,
     color: '#655643'
 });
-boxes.push({
-    x: 740,
-    y: 300,
-    width: 160,
-    height: 10,
-    color: '#655643'
-});
-boxes.push({
+
+boxes.push({//Start block
     x: 0,
     y: 350,
     width: 90,
-    height: 10,
-    color: '#655643'
-});
-boxes.push({
-    x: 90,
-    y: 350,
-    width: 10,
     height: 50,
     color: '#655643'
 });
+
+boxes.push({//Thrid block
+    x: 610,
+    y: 290,
+    width: 90,
+    height: 30,
+    color: '#655643'
+});
+boxes.push({//Eigth platform
+    x: 500,
+    y: 200,
+    width: 80,
+    height: 25,
+    color: '#655643'
+});
+boxes.push({//Ninth platform
+    x: 300,
+    y: 180,
+    width: 80,
+    height: 25,
+    color: '#655643'
+});
+boxes.push({//Tenth platform
+    x: 200,
+    y: 160,
+    width: 30,
+    height: 25,
+    color: '#655643'
+});
+boxes.push({//Eleventh platform
+    x: 0,
+    y: 130,
+    width: 95,
+    height: 25,
+    color: '#655643'
+});
+
 
 canvas.width = width;
 canvas.height = height;
@@ -216,29 +225,13 @@ function update() { // check keys
       
       //powerup collision
       if(colCheck(player, powerup[j])!==null) {//touched power up!
-         if(powerup[j].effect==='gravity'){
-            gravity= 0.4;//decrease gravity
-            player.speed = 4;
-            player.color = 'white';
-         }
-         else if (powerup[j].effect==='shrink'){
-            player.width= 10;
-            player.height= 10;
-            player.speed = 5;
-         }
-         else if (powerup[j].effect==='tele'){
-            player.x=powerup[j].px;
-            player.y=powerup[j].py;
-         }
-         else if (powerup[j].effect==='win'){
-            var r = confirm("You win! Play again?");
-            if (r == false) {
-               player.x=200;
-               player.y=200;
-            } else {
-               window.location.href = window.location.href;
+        if (powerup[j].effect==='gravity') { gravity= 0.4; /*decrease gravity*/ player.speed = 4; player.color = 'white'; }
+        else if (powerup[j].effect==='shrink') { player.width= 10; player.height= 10; player.speed = 5; }
+        else if (powerup[j].effect==='tele') { player.x=powerup[j].px; player.y=powerup[j].py; }
+        else if (powerup[j].effect==='win') { var r = confirm("You win! Play again?"); 
+        if (r == false) { player.x=200; player.y=200; } 
+            else { window.location.href = window.location.href; }
             }
-        }
         if(powerup[j].stay!==true){
            powerup[j].width=0;//make power up go away
         }
@@ -250,7 +243,7 @@ function update() { // check keys
     requestAnimationFrame(update);
 }
 
-function colCheck(shapeA, shapeB) {
+    function colCheck(shapeA, shapeB) {
     // get the vectors to check against
     var vX = (shapeA.x + (shapeA.width / 2)) - (shapeB.x + (shapeB.width / 2)), 
     vY = (shapeA.y + (shapeA.height / 2)) - (shapeB.y + (shapeB.height / 2)),
@@ -284,11 +277,8 @@ function colCheck(shapeA, shapeB) {
     }
     return colDir;
 }
-
-document.body.addEventListener("keydown", function (e) { keys[e.keyCode] = true; });
-document.body.addEventListener("keyup", function (e) { keys[e.keyCode] = false; });
-window.addEventListener("load", function () { update(); });
-   </script>
-   
-
+        document.body.addEventListener("keydown", function (e) { keys[e.keyCode] = true; });
+        document.body.addEventListener("keyup", function (e) { keys[e.keyCode] = false; });
+        window.addEventListener("load", function () { update(); });
+    </script>
 </html>
