@@ -5,14 +5,19 @@
       <title>Document</title>
       <style> body { background: #F6F7BD; } #canvas { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); } </style>
    </head>
-
-   <body> <canvas id="canvas"></canvas> </body>
+    
+   <body>
+       <div>
+           <canvas id="canvas"></canvas> 
+        </div>
+        
+    </body> 
 
    <script>
         var canvas = document.getElementById("canvas");
         ctx = canvas.getContext("2d"); width = 1000, height = 400, //canvas dimensions
         player = {
-            x: (width/2), y: 200, //player position
+            x: (2), y: 200, //player position
             width: 38, height: 49, //player dimensions
             speed: 3, velX: 0, velY: 0, //player speed
             jumping: false, grounded: false,
@@ -20,10 +25,10 @@
         }
 
         keys = [], boxes = []/*array of platforms*/, powerup = [] /*array of power ups*/, friction = 0.8, gravity = 0.4; 
-
+        powerup.push({ x: 10, y: 88, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
       /*powerup.push({ x: 810, y: 250, width: 20, height: 20, color: '#BF4D28', effect: 'shrink' });
       powerup.push({ x: 400, y: 150, width: 20, height: 20, color: '#BF4D28', effect: 'gravity' });
-      powerup.push({ x: -15, y: 88, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 }); //where they get teleported 
+       //where they get teleported 
       powerup.push({ x: 60, y: 365, width: 20, height: 20, color: '#2A5D77', effect: 'win', stay: true });*/
 
 // dimensions
@@ -281,4 +286,7 @@ function update() { // check keys
         document.body.addEventListener("keyup", function (e) { keys[e.keyCode] = false; });
         window.addEventListener("load", function () { update(); });
     </script>
+
+    
+    
 </html>
