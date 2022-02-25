@@ -3,11 +3,24 @@
    <head>
       <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
-      <style> body { background: #F6F7BD; } #canvas { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); } </style>
+      <style> body { background: #F6F7BD; } #canvas { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); } .timer{
+        border-color:#655643;
+        border-width: 5px;
+        border-style: solid;
+        width: 520px;
+        padding-left: 470px;
+        margin-left: 2%;
+        font-family: 'Fuzzy Bubbles', cursive;
+        color:#FFD700;
+        background-color: #D2042D;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
    </head>
-    
+   
+
    <body>
-       <div>
+    <div class="timer">
         <label id="minutes">00</label>:<label id="seconds">00</label>
         <script>
             var minutesLabel = document.getElementById("minutes");
@@ -32,8 +45,9 @@
         </script>
        </div>
        <div>
-           <canvas id="canvas"></canvas> 
-        </div>
+      <canvas id="canvas"></canvas> 
+      </div>
+
         
     </body> 
 
@@ -49,7 +63,20 @@
         }
 
         keys = [], boxes = []/*array of platforms*/, powerup = [] /*array of power ups*/, friction = 0.8, gravity = 0.4; 
-        powerup.push({ x: 10, y: 88, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 460, y: 350, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        
+        powerup.push({ x: 665, y: 289, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+
+        powerup.push({ x: 925, y: 195, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+
+        powerup.push({ x: 760, y: 130, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+
+        powerup.push({ x: 680, y: 115, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+
+        powerup.push({ x: 30, y: 130, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+
+        powerup.push({ x: 330, y: 180, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+;
       /*powerup.push({ x: 810, y: 250, width: 20, height: 20, color: '#BF4D28', effect: 'shrink' });
       powerup.push({ x: 400, y: 150, width: 20, height: 20, color: '#BF4D28', effect: 'gravity' });
        //where they get teleported 
@@ -145,7 +172,7 @@ boxes.push({//Thrid block
 boxes.push({//Eigth platform
     x: 500,
     y: 200,
-    width: 80,
+    width: 90,
     height: 25,
     color: '#655643'
 });
