@@ -288,14 +288,14 @@ function update() { // check keys
         if (powerup[j].effect==='gravity') { gravity= 0.4; /*decrease gravity*/ player.speed = 4; player.color = 'white'; }
         else if (powerup[j].effect==='shrink') { player.width= 10; player.height= 10; player.speed = 5; }
         else if (powerup[j].effect==='tele') { player.x=powerup[j].px; player.y=powerup[j].py; }
-        else if (powerup[j].effect==='win') { var r = confirm("You win! Play again?"); 
-        if (r == false) { player.x=200; player.y=200; } 
-            else { window.location.href = window.location.href; }
-            }
-        if(powerup[j].stay!==true){
-           powerup[j].width=0;//make power up go away
+        else if (powerup[j].effect==='win') { window.open("Maccas-win.html"); 
+        //if (r == false) { player.x=200; player.y=200; } 
+           // else { window.location.href = window.location.href; }
+            //}
+      //  if(powerup[j].stay!==true){
+         //  powerup[j].width=0;//make power up go away
+       // }
         }
-        
       }
     }
     //powerup stuff
