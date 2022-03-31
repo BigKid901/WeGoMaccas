@@ -63,17 +63,17 @@
         }
 
         keys = [], boxes = []/*array of platforms*/, powerup = [] /*array of power ups*/, friction = 0.8, gravity = 0.4; 
-        powerup.push({ x: 460, y: 350, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 460, y: 350, width: 20, height: 20, color: '#222', effect: 'tele', stay: true, px: 20, py: 370 });
         
-        powerup.push({ x: 665, y: 289, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 665, y: 289, width: 20, height: 20, color: '#222', effect: 'tele', stay: true, px: 20, py: 370 });
 
-        powerup.push({ x: 925, y: 195, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 925, y: 195, width: 20, height: 20, color: '#222', effect: 'tele', stay: true, px: 20, py: 370 });
 
-        powerup.push({ x: 760, y: 130, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 760, y: 130, width: 20, height: 20, color: '#222', effect: 'tele', stay: true, px: 20, py: 370 });
 
-        powerup.push({ x: 680, y: 115, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 680, y: 115, width: 20, height: 20, color: '#222', effect: 'tele', stay: true, px: 20, py: 370 });
 
-        powerup.push({ x: 30, y: 130, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
+        powerup.push({ x: 30, y: 130, width: 20, height: 20, color: '#222', effect: 'tele', stay: true, px: 20, py: 370 });
 
         powerup.push({ x: 330, y: 180, width: 20, height: 20, color: '#222', effect: 'tele', rotate: 20, stay: true, px: 20, py: 370 });
     //Lava
@@ -267,21 +267,27 @@ function update() { // check keys
     ctx.fillStyle = bucketPattern;
     ctx.fillRect(player.x, player.y, player.width, player.height);
     
+    let t = new Path2D('M 9.00,0.00 C 9.00,0.00 17.66,15.00 17.66,15.00 17.66,15.00 0.34,15.00 0.34,15.00 0.34,15.00 9.00,0.00 9.00,0.00 Z');
+
+
     //draw powerup stuff 
     for(var j = 0; j < powerup.length; j++){
-      ctx.save();
-      var cx = powerup[j].x + 0.5 * powerup[j].width,   // x of shape center
-      cy = powerup[j].y + 0.5 * powerup[j].height; //y of shape center
-      ctx.translate(cx, cy);  //translate to center of shape
+      ctx.fillStyle = powerup[j].color;
+      //ctx.save();
+      var cx = powerup[j].x + 0.5 * powerup[j].width, /* x of shape center */ cy = powerup[j].y + 0.5 * powerup[j].height; /* y of shape center */
+      ctx.fill(t);
+      //ctx.translate(cx, cy);  //translate to center of shape
       //ctx.rotate( (Math.PI / 180) * 45);//rotate 25 degrees.
-      if(powerup[j].effect  === 'tele'){
+      //if(powerup[j].effect  === 'tele'){
         //ctx.rotate( (Math.PI / 180) * powerup[j].rotate);//rotate 25 degrees.
         //powerup[j].rotate = (Math.PI / 180) * powerup[j].rotate;
-      }
-      ctx.translate(-cx, -cy);            //translate center back to 0,0
-      ctx.fillStyle = powerup[j].color;
+      //}
+      //ctx.translate(-cx, -cy);            //translate center back to 0,0
+      
+     
+      
       ctx.fillRect(powerup[j].x, powerup[j].y, powerup[j].width, powerup[j].height);
-      ctx.restore();
+      //ctx.restore();
       
       //powerup collision
       if(colCheck(player, powerup[j])!==null) {//touched power up!
