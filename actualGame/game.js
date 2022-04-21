@@ -1,29 +1,4 @@
-<!DOCTYPE html> 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Game</title> <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
-        <style>
-            body { background: #F6F7BD; } 
-            #canvas { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); } 
-            .timer { border-color:#655643; border-width: 5px; border-style: solid; width: 520px; padding-left: 470px; margin-left: 2%; font-family: 'Fuzzy Bubbles', cursive; color:#FFD700; background-color: #D2042D; }
-        </style>
-    </head>
-   
-    <body>
-        <div class="timer"> <!--Timer at the top of the page--> 
-            <label id="minutes">00</label>:<label id="seconds">00</label>
-            <script>
-                var minutesLabel = document.getElementById("minutes"); var secondsLabel = document.getElementById("seconds"); var totalSeconds = 0; setInterval(setTime, 1000);
-                function setTime() { ++totalSeconds; secondsLabel.innerHTML = pad(totalSeconds % 60); minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60)); }
-                function pad(val) { var valString = val + ""; if (valString.length < 2) { return "0" + valString; } else { return valString; } }
-            </script> </div>
-            
-        <div> <canvas id="canvas"></canvas> </div>   
-    </body> 
-
-   <script>
-        var canvas = document.getElementById("canvas");
+var canvas = document.getElementById("canvas");
         ctx = canvas.getContext("2d"); width = 1000, height = 400, //canvas dimensions
         player = { x: (2), y: 200, width: 38, height: 49, speed: 3, velX: 0, velY: 0, jumping: false, grounded: false, color: "red" }
 
@@ -116,7 +91,14 @@
       //lava collision
       if(colCheck(player, lava[j])!==null) { if (lava[j].effect==='tele') { player.x=lava[j].px; player.y=lava[j].py; } } //touched power up!
     }
-    //lava stuff
+    
+     //for end
+     for(var j = 0; j < end.length; j++) {
+        ctx.fillStyle = end[j].color; var cx = end[j].x + 0.5 * end[j].width, /* x of shape center */ cy = end[j].y + 0.5 * end[j].height; /* y of shape center */ ctx.fillRect(end[j].x, end[j].y, end[j].width, end[j].height);
+      
+      //end collision
+      if(colCheck(player, end[j])!==null) { if (end[j].effect==='win') { player.x=end[j].px; player.y=end[j].py; } } //touched power up!
+    }
  
     requestAnimationFrame(update);
 }
@@ -140,5 +122,3 @@
 }
         document.body.addEventListener("keydown", function (e) { keys[e.keyCode] = true; }); document.body.addEventListener("keyup", function (e) { keys[e.keyCode] = false; });
         window.addEventListener("load", function () { update(); });
-    </script>
-</html>

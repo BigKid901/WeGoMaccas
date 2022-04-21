@@ -1,20 +1,13 @@
-<!--Based on this tutorial https://github.com/ChristopherTopalian/Camera-Follows-Player-Using-Javascript -->
-
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>gamePage</title>
-        <link rel="stylesheet" href="/style/game.css">
+        <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="\style\game.css">
+        <title>Game</title> 
     </head>
-    <body style="background-color: aqua;">
-        <div class="game" onload="whenLoaded();">
-            <div id="thePlayer1" class="box"></div> <!-- create the Player -->
-            <div id="thePlayer2" class="bucket"></div> <!-- create the Player -->
-            <div id="theBackgroundImage"></div> <!-- create the Background Image -->
-            <script src="/actualGame/theGame.js"></script>
-        </div>
-    </body>
+   
+    <body> <div class="timer"> <label id="minutes">00</label>:<label id="seconds">00</label> <script src="timer.js"> </script> </div> <div> <canvas id="canvas"> <script src="game.js"></script> </canvas> </div> </body> 
+
+   
 </html>
