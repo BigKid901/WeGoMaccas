@@ -1,5 +1,5 @@
 var canvas = document.getElementById("canvas"); ctx = canvas.getContext("2d"); width = 1000, height = 400, //canvas dimensions
-player = { x: (2), y: 200, width: 38, height: 49, speed: 3, velX: 0, velY: 0, jumping: false, grounded: false, color: "red" }
+player = { x: (2), y: 200, width: 38, height: 49, speed: 3, velX: 0, velY: 0, jumping: false, grounded: false, color: "purple" }
 keys = [], boxes = [], carrots = [], lava = [], end = [], friction = 0.8, gravity = 0.4; 
 //            |---Position---| |------Dimensions------|                                 |Where You're Sent|
 carrots.push({ x: 460, y: 350, width: 020, height: 020, color: 'purple', effect: 'tele', px: 20, py: 370 });//First spike
@@ -44,7 +44,7 @@ function update() {
    ctx.fill(); ctx.fillStyle = player.color; ctx.fillRect(player.x, player.y, player.width, player.height);
    for(var j = 0; j < carrots.length; j++) {
       ctx.fillStyle = carrots[j].color; ctx.fillRect(carrots[j].x, carrots[j].y, carrots[j].width, carrots[j].height);
-      if(colCheck(player, carrots[j])!==null) { if (carrots[j].effect==='tele') { player.x=carrots[j].px; player.y=carrots[j].py; }}
+      if(colCheck(player, carrots[j])!==null) { if (carrots[j].effect==='tele') { player.x=carrots[j].px; player.y=carrots[j].py; } }
    }
    for(var j = 0; j < lava.length; j++) {
       ctx.fillStyle = lava[j].color; ctx.fillRect(lava[j].x, lava[j].y, lava[j].width, lava[j].height);
