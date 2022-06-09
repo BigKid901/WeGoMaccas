@@ -52,7 +52,7 @@ function update() {
    }
    for(var j = 0; j < end.length; j++) {
       ctx.fillStyle = end[j].color; ctx.fillRect(end[j].x, end[j].y, end[j].width, end[j].height);
-      if(colCheck(player, end[j])!==null) { if (end[j].effect==='win') { window.open("Maccas-win.html");}   }
+      if(colCheck(player, end[j])!==null) { if (end[j].effect==='win') { window.open("actualGame/Maccas-win.html");}   }
    }
    requestAnimationFrame(update);
 }
