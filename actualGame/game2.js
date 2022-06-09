@@ -1,4 +1,4 @@
-var canvas = document.getElementById("canvas"); ctx = canvas.getContext("2d"); width = 1000, height = 400, //canvas dimensions
+var canvas = document.getElementById("canvas2"); ctx = canvas.getContext("2d"); width = 1000, height = 400, //canvas dimensions
 player = { x: (2), y: 200, width: 38, height: 49, speed: 3, velX: 0, velY: 0, jumping: false, grounded: false, color: "purple" }
 keys = [], boxes = [], carrots = [], lava = [], end = [], friction = 0.8, gravity = 0.4; 
 //            |---Position---| |------Dimensions------|                                 |Where You're Sent|
@@ -30,9 +30,9 @@ carrots.push({ x: 030, y: 130, width: 020, height: 020, color: 'purple', effect:
 canvas.width = width; canvas.height = height;
 
 function update() {
-   if (keys[38] || keys[32] || keys[87]) { if (!player.jumping && player.grounded) { player.jumping = true; player.grounded = false; player.velY = -player.speed * 2.5; /*how high to jump*/ } }// up arrow or space
-   if (keys[39] || keys[68]) { if (player.velX < player.speed)  { player.velX++; } }// right arrow
-   if (keys[37] || keys[65]) { if (player.velX > -player.speed) { player.velX--; } } // left arrow
+   if (keys[38]) { if (!player.jumping && player.grounded) { player.jumping = true; player.grounded = false; player.velY = -player.speed * 2.5; /*how high to jump*/ } }// up arrow or space
+   if (keys[39]) { if (player.velX < player.speed)  { player.velX++; } }// right arrow
+   if (keys[37]) { if (player.velX > -player.speed) { player.velX--; } } // left arrow
    player.velX *= friction; player.velY += gravity; player.grounded = false;
    ctx.clearRect(0, 0, width, height); ctx.beginPath();//?????????????
    for (var i = 0; i < boxes.length; i++) {//print platforms

@@ -30,9 +30,9 @@ carrots.push({ x: 030, y: 130, width: 020, height: 020, color: 'purple', effect:
 canvas.width = width; canvas.height = height;
 
 function update() {
-   if (keys[38] || keys[32] || keys[87]) { if (!player.jumping && player.grounded) { player.jumping = true; player.grounded = false; player.velY = -player.speed * 2.5; /*how high to jump*/ } }// up arrow or space
-   if (keys[39] || keys[68]) { if (player.velX < player.speed)  { player.velX++; } }// right arrow
-   if (keys[37] || keys[65]) { if (player.velX > -player.speed) { player.velX--; } } // left arrow
+   if (keys[87]) { if (!player.jumping && player.grounded) { player.jumping = true; player.grounded = false; player.velY = -player.speed * 2.5; /*how high to jump*/ } }// up arrow or space
+   if (keys[68]) { if (player.velX < player.speed)  { player.velX++; } }// right arrow
+   if (keys[65]) { if (player.velX > -player.speed) { player.velX--; } } // left arrow
    player.velX *= friction; player.velY += gravity; player.grounded = false;
    ctx.clearRect(0, 0, width, height); ctx.beginPath();//?????????????
    for (var i = 0; i < boxes.length; i++) {//print platforms

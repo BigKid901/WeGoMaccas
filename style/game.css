@@ -1,3 +1,4 @@
 body { background: #F6F7BD; } 
 #canvas { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); } 
+#canvas2 { margin-left:2%; background: linear-gradient(#80BCA3, #B6D8C0); }
 .timer { border-color:#655643; border-width: 5px; border-style: solid; width: 520px; padding-left: 470px; margin-left: 2%; font-family: 'Fuzzy Bubbles', cursive; color:#FFD700; background-color: #D2042D; }
